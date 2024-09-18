@@ -1,0 +1,289 @@
+body {
+    font-family: 'Roboto Mono', monospace;
+    background: linear-gradient(135deg, #2c003e 25%, #000000 100%);
+    color: #f0f0f0;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.03),
+        rgba(255, 255, 255, 0.03) 10px,
+        transparent 10px,
+        transparent 20px
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#login, #main {
+    background: #333;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    margin: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-sizing: border-box;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 1.5em;
+    border: 2px solid #e91e63;
+    border-radius: 5px;
+    width: 100%;
+    font-family: 'Roboto Mono', monospace;
+    background-color: #444;
+    color: #f0f0f0;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1.5em;
+    background-color: #e91e63;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    font-family: 'Roboto Mono', monospace;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background-color: #d81b60;
+}
+
+.button-container {
+    margin: 20px 0;
+    position: relative;
+}
+
+#clickButton {
+    font-size: 2em;
+    padding: 20px;
+    background-color: #e91e63;
+    color: white;
+    border: 3px solid #d81b60;
+    border-radius: 20px;
+    box-shadow: 5px 5px #d81b60;
+    cursor: pointer;
+    font-family: 'Roboto Mono', monospace;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#clickButton:active {
+    background-color: #d81b60;
+    transform: scale(0.9);
+}
+
+#ranking {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#ranking li {
+    font-size: 1.5em;
+    color: #e91e63;
+    margin: 5px 0;
+    font-family: 'Roboto Mono', monospace;
+}
+
+#confetti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.confetti-piece {
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 20px;
+    opacity: 7;
+    transform: rotate(0deg);
+    animation: fall linear infinite, fadeOut 3s ease-out forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+#shop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background: #222;
+    color: #f0f0f0;
+    padding: 20px;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.7);
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.shop-item {
+    margin-bottom: 20px;
+}
+
+.shop-item button {
+    margin-top: 10px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button.green {
+    background-color: #4caf50;
+}
+
+button.green:hover {
+    background-color: #388e3c;
+}
+
+button.yellow {
+    background-color: #ffeb3b;
+    color: black;
+}
+
+button.yellow:hover {
+    background-color: #fbc02d;
+}
+
+button.red {
+    background-color: #f44336;
+}
+
+button.red:hover {
+    background-color: #d32f2f;
+}
+
+.alert-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #444;
+    color: #f0f0f0;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+}
+
+.alert-box button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background-color: #e91e63;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.alert-box button:hover {
+    background-color: #d81b60;
+}
+
+/* Ball animation */
+.ball {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #4caf50;
+}
+
+.ball.yellow {
+    background-color: #ffeb3b;
+}
+
+.ball.red {
+    background-color: #f44336;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    #login, #main {
+        width: 100%;
+        max-width: none;
+    }
+
+    button {
+        font-size: 1.2em;
+    }
+
+    #clickButton {
+        font-size: 1.5em;
+    }
+
+    #ranking li {
+        font-size: 1.2em;
+    }
+
+    #shop {
+        width: 100%;
+        height: auto;
+        box-shadow: none;
+        position: relative;
+    }
+
+    .alert-box {
+        width: 90%;
+    }
+}

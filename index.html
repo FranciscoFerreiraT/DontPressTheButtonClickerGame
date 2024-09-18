@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Don't Press The Button</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="login">
+            <h1>Enter your username</h1>
+            <input type="text" id="username" placeholder="Username">
+            <button onclick="login()">Enter</button>
+        </div>
+        <div id="main" style="display: none;">
+            <h1 id="greeting"></h1>
+            <div class="button-container">
+                <button id="clickButton" onclick="incrementClicks()">Don't press this button!</button>
+            </div>
+            <h2>Clicks: <span id="clickCount">0</span></h2>
+            <h2>Ranking:</h2>
+            <ul id="ranking"></ul>
+        </div>
+        <div id="shop" style="display: none;">
+            <h2>Shop</h2>
+            <div class="shop-item">
+                <h3>Click Multiplier (+1)</h3>
+                <button onclick="buyClickMultiplier()">Buy for 100 clicks</button>
+            </div>
+            <div class="shop-item">
+                <h3>Passive Clicks</h3>
+                <button class="green" onclick="buyPassiveClicker('green')">Buy Green for 200 clicks</button>
+                <button class="yellow" onclick="buyPassiveClicker('yellow')">Buy Yellow for 500 clicks</button>
+                <button class="red" onclick="buyPassiveClicker('red')">Buy Red for 1000 clicks</button>
+            </div>
+        </div>
+        <div id="confetti"></div>
+    </div>
+    <audio id="applause-sound" src="https://www.soundjay.com/human/applause-8.mp3"></audio>
+    <div id="alertBox" class="alert-box" style="display: none;">
+        <span id="alertMessage"></span>
+        <button onclick="closeAlert()">OK</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
